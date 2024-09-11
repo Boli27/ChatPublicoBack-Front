@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>BoliChat</h1>
+      <p id="UserName"></p>
+      <input type="text" id="mensaje" class="form-control" /> <br />
+      <button class="btn btn-primary" id="enviar">Enviar</button>
+
+      <h4 class="mt-5">Chat</h4>
+      <div id="chat"></div>
+    </div>
+  </body>
+  <script>
+    const nombreUsuario = prompt("Ingresa el usuario: ");
+    // Conectar al servidor WebSocket
+    const socket = new WebSocket("ws://localhost:8080");
+
+    const chat = document.getElementById("chat");
+    const input = document.getElementById("mensaje");
+    const button = document.getElementById("enviar");
+    document.getElementById("UserName").innerText="Usuario: "+nombreUsuario+" conectado"
+
+    // Escuchar mensajes entrantes del servidor
+    socket.onmessage = async (event) => {
+      const texto = await event.data.text();
+
+      const nuevoMensaje = document.createElement("div");
+      nuevoMensaje.textContent = texto;
+      chat.appendChild(nuevoMensaje);
+
+      //Desplazarse automáticamente al último chat.
+      chat.scrollTop = chat.scrollHeight;
+    };
+    // Enviar mensajes al servidor.
+    button.addEventListener("click", () => {
+      const mensaje = input.value;
+      if (mensaje.trim() !== "") {
+        const mensajeCompleto = `${nombreUsuario} : ${mensaje}`;
+        socket.send(mensajeCompleto);
+        input.value = "";
+      }
+    });
+
+    input.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        button.click();
+      }
+    });
+    // Mostrar un mensaje si la conexion esta cerrada
+    socket.onclose = () => {
+      const mensajeCierre = document.createElement("div");
+      mensajeCierre.textContent = "Conexión cerrada con el servidor";
+      chat.appendChild(mensajeCierre);
+    };
+
+    socket.onerror = (error) => {
+      console.log("WebSocket error ", error);
+    };
+
+    console.log(nombreUsuario);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</html>
