@@ -1,0 +1,41 @@
+/* Estilo para cada mensaje en el chat */
+.mensaje {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  max-width: 60%;
+  word-wrap: break-word;
+}
+
+/* Estilo para los mensajes enviados por el usuario */
+.mensaje-propio {
+  margin-left: auto; /* Alinea el mensaje a la derecha */
+  background-color: #d1e7dd; /* Color de fondo para mensajes propios */
+  text-align: right; /* Alinea el texto a la derecha */
+}
+
+/* Estilo para los mensajes recibidos de otros usuarios */
+.mensaje-otro {
+  margin-right: auto; /* Alinea el mensaje a la izquierda */
+  background-color: #fff; /* Color de fondo para mensajes de otros usuarios */
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.mensaje .usuario {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.mensaje .hora {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 5px;
+}
+
+.mensaje .texto {
+  font-size: 1em;
+  margin-top: 5px;
+}
