@@ -11,16 +11,17 @@
 </head>
 
 <body>
-  <div class="container mt-5">
+  <div class="container">
     <h1>BoliChat</h1>
     <p id="UserName"></p>
-    <input type="text" id="mensaje" class="form-control" /> <br />
-    <button class="btn btn-primary" id="enviar">Enviar</button>
 
-    <h4 class="mt-5">Chat</h4>
-    <div id="chat">
+    <!-- Contenedor del chat con scroll interno -->
+    <div id="chat"></div>
 
-
+    <!-- Área de entrada del mensaje ubicada en la parte inferior -->
+    <div class="input-area">
+      <input type="text" id="mensaje" class="form-control" placeholder="Escribe tu mensaje..." />
+      <button class="btn btn-primary" id="enviar">Enviar</button>
     </div>
   </div>
 </body>
