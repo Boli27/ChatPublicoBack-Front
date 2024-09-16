@@ -64,8 +64,7 @@ socket.onmessage = (event) => {
   } else if (data.type === 'notification') {
     // Maneja notificaciones de entrada y salida de usuarios
     nuevoMensaje.textContent = data.message;
-    nuevoMensaje.classList.add("mensaje", "mensaje-otro");
-    nuevoMensaje.style.fontStyle = 'italic';
+    nuevoMensaje.classList.add("mensaje", "mensaje-otro","notificaciones");
   }
 
   chat.appendChild(nuevoMensaje); // Agrega el nuevo mensaje al área de chat
@@ -98,7 +97,7 @@ input.addEventListener("keypress", (event) => {
 socket.onclose = () => {
   const mensajeCierre = document.createElement("div");
   mensajeCierre.textContent = `El usuario ${nombreUsuario} ha salido del chat`;
-  mensajeCierre.classList.add("mensaje", "mensaje-otro");
+  mensajeCierre.classList.add("mensaje", "mensaje-otro", "notificaciones");
   chat.appendChild(mensajeCierre);
 };
 

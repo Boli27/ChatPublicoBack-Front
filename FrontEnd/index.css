@@ -40,6 +40,9 @@ body, html {
   border: 1px solid #a8a7a7;
 }
 
+.notificaciones{
+  font-style: italic;
+}
 .mensaje {
   padding: 10px;
   margin-bottom: 10px;
