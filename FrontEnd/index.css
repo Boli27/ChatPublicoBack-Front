@@ -1,0 +1,97 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ text-align: center;
+}
+
+#UserName{
+  font-size: 20px;
+  font-style: italic;
+  color: #007bff;
+}
+#chat {
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid #a8a7a7;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+  padding: 10px;
+  max-height: 70vh; /* Altura máxima del chat */
+  background-color: #f8f9fa;
+
+}
+.input-area {
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+  margin-bottom: 50px;;
+}
+#mensaje{
+  border: 1px solid #a8a7a7;
+}
+
+.notificaciones{
+  font-style: italic;
+}
+.mensaje {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  max-width: 60%;
+  word-wrap: break-word;
+}
+
+
+
+.mensaje-otro {
+  margin-right: auto;
+  background-color: #fff;
+  text-align: left;
+}
+
+.mensaje-otro .hora {
+  font-size: 0.8em;
+  color: #777;
+}
+
+.mensaje .usuario {
+  font-weight: bold;
+  color: #007bff;
+}
+.mensaje-propio {
+  margin-left: auto;
+  background-color: #d1e7dd;
+  text-align: left; /* Alinear texto a la izquierda */
+  display: flex;
+  flex-direction: column;
+}
+
+.mensaje-propio .usuario-hora {
+  display: flex;
+  justify-content: space-between; /* Distribuir espacio entre nombre y hora */
+  font-weight: bold;
+}
+
+.mensaje-propio .hora {
+  font-size: 0.8em;
+  color: #777;
+}
+
+.mensaje-propio .texto {
+  font-size: 1em;
+  margin-top: 5px;
+  word-wrap: break-word;
+}
